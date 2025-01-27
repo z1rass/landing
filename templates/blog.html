@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>VERITAS Blog | Tech Insights</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem;
+            background: #000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .back-button {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .back-button:hover {
+            background: #fff;
+            color: #000;
+
+        }
+
+        .blog-hero {
+            padding: 8rem 0 4rem;
+            background: #000;
+            color: #fff;
+            text-align: center;
+        }
+
+        .blog-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .blog-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .blog-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 200px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            color: #666;
+        }
+
+        .blog-card-content {
+            padding: 1.5rem;
+        }
+
+        .blog-card-date {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card-excerpt {
+            font-size: 0.875rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #000;
+            color: #fff;
+            font-size: 0.75rem;
+            margin-top: 1rem;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                padding: 2rem 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">VERITAS</a>
+            <a href="/" class="back-button">Back to Home</a>
+        </div>
+    </header>
+
+    <section class="blog-hero">
+        <h1 class="blog-title">Our Tech Journey</h1>
+        <p class="blog-subtitle">Insights, learnings, and adventures in software development and IoT</p>
+    </section>
+
+    <main class="blog-grid">
+        <a href="#" class="blog-card">
+            <div class="blog-card-image">ESP32 Project Preview</div>
+            <div class="blog-card-content">
+                <div class="blog-card-date">January 25, 2024</div>
+                <h2 class="blog-card-title">Building an IoT Environmental Monitor</h2>
+                <p class="blog-card-excerpt">How we created a smart environmental monitoring system using ESP32 and real-time data analysis.</p>
+                <span class="tag">IoT</span>
+            </div>
+        </a>
+
+        <a href="#" class="blog-card">
+            <div class="blog-card-image">AI Integration Preview</div>
+            <div class="blog-card-content">
+                <div class="blog-card-date">January 20, 2024</div>
+                <h2 class="blog-card-title">AI in Educational Content Creation</h2>
+                <p class="blog-card-excerpt">Exploring the integration of AI technologies in automated video content generation.</p>
+                <span class="tag">AI</span>
+            </div>
+        </a>
+
+        <a href="#" class="blog-card">
+            <div class="blog-card-image">E-commerce Preview</div>
+            <div class="blog-card-content">
+                <div class="blog-card-date">January 15, 2024</div>
+                <h2 class="blog-card-title">Gamifying E-commerce Experience</h2>
+                <p class="blog-card-excerpt">How we implemented an achievement system to enhance user engagement in online shopping.</p>
+                <span class="tag">Web Development</span>
+            </div>
+        </a>
+    </main>
+
+    <script>
+        // Fade in animation for blog cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.blog-card');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
