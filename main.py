@@ -14,3 +14,21 @@ async def read_index(request: Request):
 @app.get("/blog", response_class=HTMLResponse)
 async def get_blog_home(request: Request):
     return templates.TemplateResponse("blog.html", {"request": request})
+
+
+
+
+@app.get("/blog/{blog_id}")
+async def get_blog(request: Request, blog_id: int):
+    return templates.TemplateResponse("thread.html", {"request":request})
+
+
+
+
+
+
+
+
+
+
+
